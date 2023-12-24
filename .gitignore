@@ -1,0 +1,23 @@
+.venv
+.idea
+
+__pycache__/
+app/__pycache__/
+tests/__pycache__/
+
+#django_video_processing_service
+media/uploads
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# celery
+celerybeat-schedule.*
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
