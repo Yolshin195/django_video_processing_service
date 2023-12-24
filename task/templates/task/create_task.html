@@ -1,0 +1,55 @@
+{% extends "task/base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Create Task</h2>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Загрузить файл с компьютера</h5>
+                    <form method="post" enctype="multipart/form-data" action="{% url 'create_task' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="formFileWithUser" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFileWithUser" name="file_with_user">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Processing</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Файл с YouTube</h5>
+                    <form method="post" action="{% url 'create_task' %}">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">YouTube</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                   aria-describedby="basic-addon1" name="youtube_url">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Processing</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Файл с Torrent</h5>
+                    <form method="post" enctype="multipart/form-data" action="{% url 'create_task' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="formFileWithTorrent" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFileWithTorrent" name="file_with_torrent">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Processing</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

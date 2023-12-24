@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+    container_name: django_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - celery_worker
+
+  celery_worker:
+    build:
+      context: .
+    depends_on:
+      - redis
+    command: celery -A video_processing_service worker -l INFO --pool=solo
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis_server
+    ports:
+      - "6379:6379"
